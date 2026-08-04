@@ -22,6 +22,7 @@ class GumroadEntitlementChecker(
         val key = store.licenseKey?.takeIf { it.isNotBlank() } ?: return false
 
         if (ownerBypassCode.isNotBlank() && key == ownerBypassCode) {
+            store.lastCheckMessage = "Owner bypass code -- unlimited, no Gumroad check performed"
             return true
         }
 
