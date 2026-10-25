@@ -15,7 +15,7 @@ import kotlinx.coroutines.withContext
  */
 class GumroadEntitlementChecker(
     private val store: GumroadVerifyOnceStore,
-    private val productPermalink: String,
+    private val productId: String,
     private val ownerBypassCode: String = "",
 ) {
     suspend fun isLicensed(): Boolean {
@@ -31,7 +31,7 @@ class GumroadEntitlementChecker(
         }
 
         return withContext(Dispatchers.IO) {
-            when (val result = GumroadLicenseVerifier.verify(productPermalink, key)) {
+            when (val result = GumroadLicenseVerifier.verify(productId, key)) {
                 is GumroadLicenseVerifier.Result.Valid -> {
                     store.verifiedKey = key
                     store.lastCheckMessage = "Valid -- activated for good, no further checks needed"

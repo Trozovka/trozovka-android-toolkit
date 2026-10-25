@@ -18,8 +18,14 @@ object GumroadLicenseVerifier {
     private const val ENDPOINT = "https://api.gumroad.com/v2/licenses/verify"
     private const val TIMEOUT_MILLIS = 10_000
 
-    fun verify(productPermalink: String, licenseKey: String): Result {
-        if (productPermalink.isBlank() || licenseKey.isBlank()) return Result.Invalid
+    /**
+     * [productId] is the Gumroad product ID (e.g. "aPlo00yFqtyRLIbq6ZyjzQ==", shown in the product's
+     * License key block), NOT its permalink: for products created after early 2023 Gumroad rejects
+     * permalink-only requests with "The 'product_id' parameter is required" (confirmed with a real
+     * key on 2026-10-26), so every genuine buyer's key would fail.
+     */
+    fun verify(productId: String, licenseKey: String): Result {
+        if (productId.isBlank() || licenseKey.isBlank()) return Result.Invalid
 
         return try {
             val connection = (URL(ENDPOINT).openConnection() as HttpURLConnection).apply {
@@ -29,9 +35,7 @@ object GumroadLicenseVerifier {
                 readTimeout = TIMEOUT_MILLIS
             }
 
-            val body = "product_permalink=${URLEncoder.encode(productPermalink, "UTF-8")}" +
-                "&license_key=${URLEncoder.encode(licenseKey, "UTF-8")}"
-            OutputStreamWriter(connection.outputStream).use { it.write(body) }
+            OutputStreamWriter(connection.outputStream).use { it.write(requestBody(productId, licenseKey)) }
 
             val stream = if (connection.responseCode in 200..299) {
                 connection.inputStream
@@ -50,4 +54,8 @@ object GumroadLicenseVerifier {
             Result.NetworkError(e.message ?: e.javaClass.simpleName)
         }
     }
+
+    internal fun requestBody(productId: String, licenseKey: String): String =
+        "product_id=${URLEncoder.encode(productId, "UTF-8")}" +
+            "&license_key=${URLEncoder.encode(licenseKey, "UTF-8")}"
 }
