@@ -4,7 +4,7 @@ Two small, independent Android library modules, shared across Trozovka's offline
 apps ([OpenCPN GPS Server](https://github.com/Trozovka/opencpn-gps-server-free), PocketVDR, and
 whatever comes next) so the same two patterns aren't hand-rolled or copy-pasted per project.
 
-Developed by **John Winsome Munar** ([Trozovka](https://github.com/Trozovka) on GitHub).
+Developed by **[Trozovka](https://github.com/Trozovka) (John Winsome Munar)**.
 
 ## `:reliability`
 
@@ -69,5 +69,5 @@ licensing logic -- rather than copy-pasting a second, separately-maintained vers
 
 MIT -- see [LICENSE](LICENSE) for the full text.
 
-Copyright (c) 2026 John Winsome Munar (Trozovka). Original Author: John Winsome Munar (Trozovka). All derivative works must retain the
+Copyright (c) 2026 Trozovka (John Winsome Munar). Original Author: Trozovka (John Winsome Munar). All derivative works must retain the
 [NOTICE](NOTICE) file's attribution. Not a fork of, or derived from, any other project's source.
