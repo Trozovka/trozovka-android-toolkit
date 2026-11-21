@@ -19,10 +19,8 @@ object GumroadLicenseVerifier {
     private const val TIMEOUT_MILLIS = 10_000
 
     /**
-     * [productId] is the Gumroad product ID (e.g. "aPlo00yFqtyRLIbq6ZyjzQ==", shown in the product's
-     * License key block), NOT its permalink: for products created after early 2023 Gumroad rejects
-     * permalink-only requests with "The 'product_id' parameter is required" (confirmed with a real
-     * key on 2026-10-26), so every genuine buyer's key would fail.
+     * [productId] is the Gumroad product ID shown in the product's License key block, not its
+     * permalink: Gumroad rejects permalink-only requests for newer products.
      */
     fun verify(productId: String, licenseKey: String): Result {
         if (productId.isBlank() || licenseKey.isBlank()) return Result.Invalid
