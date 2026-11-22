@@ -1,7 +1,7 @@
 # Trozovka Android Toolkit
 
 Two small, independent Android library modules, shared across Trozovka's offline-first Android
-apps ([OpenCPN GPS Server](https://github.com/Trozovka/opencpn-gps-server-free), PocketVDR, and
+apps ([GPS Server for OpenCPN](https://github.com/Trozovka/gps-server-for-opencpn-free), PocketVDR, and
 whatever comes next) so the same two patterns aren't hand-rolled or copy-pasted per project.
 
 Developed by **[Trozovka](https://github.com/Trozovka) (John Winsome Munar)**.
@@ -61,7 +61,7 @@ Bugfixes and improvements to either module go into this repo and get pulled into
 
 ## Where this pattern came from
 
-Both modules were extracted from the [OpenCPN GPS Server](https://github.com/Trozovka/opencpn-gps-server-free)
+Both modules were extracted from the [GPS Server for OpenCPN](https://github.com/Trozovka/gps-server-for-opencpn-free)
 project after the second app (PocketVDR) needed the identical foreground-service and Gumroad
 licensing logic -- rather than copy-pasting a second, separately-maintained version of either.
 
