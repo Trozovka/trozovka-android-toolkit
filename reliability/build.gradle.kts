@@ -3,7 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
 }
 
-// Foreground-service reliability pattern shared across Trozovka's offline-first Android apps:
+// Foreground-service reliability pattern shared across John Winsome Munar's offline-first Android apps:
 // a partial wake lock helper and the fine/coarse -> background location -> notifications ->
 // battery-optimization-exemption permission chain, extracted from the OpenCPN GPS Server project.
 android {

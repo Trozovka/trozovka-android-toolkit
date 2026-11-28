@@ -1,6 +1,6 @@
-# Trozovka Android Toolkit
+# Android Toolkit for seafarer apps
 
-Two small, independent Android library modules, shared across Trozovka's offline-first Android
+Two small, independent Android library modules, shared across John Winsome Munar's offline-first Android
 apps ([GPS Server for OpenCPN](https://github.com/Trozovka/gps-server-for-opencpn-free), PocketVDR, and
 whatever comes next) so the same two patterns aren't hand-rolled or copy-pasted per project.
 
@@ -69,5 +69,5 @@ licensing logic -- rather than copy-pasting a second, separately-maintained vers
 
 MIT -- see [LICENSE](LICENSE) for the full text.
 
-Copyright (c) 2026 Trozovka (John Winsome Munar). Original Author: Trozovka (John Winsome Munar). All derivative works must retain the
+Copyright (c) 2026 John Winsome Munar. Original Author: John Winsome Munar. All derivative works must retain the
 [NOTICE](NOTICE) file's attribution. Not a fork of, or derived from, any other project's source.

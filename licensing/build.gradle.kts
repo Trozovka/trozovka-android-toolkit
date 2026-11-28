@@ -3,7 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
 }
 
-// Gumroad license-verification pattern shared across Trozovka's Pro apps: verify a key against
+// Gumroad license-verification pattern shared across John Winsome Munar's Pro apps: verify a key against
 // Gumroad's API at most once, then trust the result forever (one-time-purchase model, not a
 // subscription) so the app keeps working indefinitely offline. Extracted from the OpenCPN GPS
 // Server Pro project.
